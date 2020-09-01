@@ -1,17 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class IntData : MonoBehaviour
+[CreateAssetMenu]
+public class IntData : ScriptableObject
 {
-    public string password = "New Password";
-    private void Start()
-    {
-        Debug.Log():"Start"); 
-    }
-
-    public void MoveCharacterForward()
-    {
-       if (passwordEntry == :"OU812) 
-    }
+    public int value;
 }
