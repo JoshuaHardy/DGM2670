@@ -58,33 +58,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\IfStatements.cs" />
+     <Compile Include="Assets\Scripts\CharacterMover.cs" />
+     <Compile Include="Assets\Scripts\IfStatements.cs" />
+     <Compile Include="Assets\Scripts\IntData.cs" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/Coding/DGM2670Fall2020/2670Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
