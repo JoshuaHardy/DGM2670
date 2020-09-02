@@ -1,50 +1,50 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngineInternal;
 
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMover : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 movement;
-    public float gravity = 9.81f;
-    public float moveSpeed = 3f;
-    public float fastMoveSpeed;
-    public float jumpForce = 10f;
-    public int jumpCountMax;
-    public float rotateSpeed = 3f;
-    private Vector3 rotateMovement;
-    
-    void Start()
+
+    public float moveSpeed = 5f, rotateSpeed = 100f, gravity = -1f, jumpforce = 10f;
+    private float yVar;
+
+    public int jumpCountMax = 2;
+    private int jumpCount;
+    private void Start()
     {
         controller = GetComponent<CharacterController>();
     }
     
-    void Update()
+    private void Update()
     {
-        transform.Rotate(rotateMovement);
-        movement.x = moveSpeed;
+        var vInput = Input.GetAxis("Vertical");
+        movement.Set(moveSpeed*vInput, -gravity, 0);
+        
+        var hInput = Input.GetAxis("Horizontal")*Time.deltaTime*rotateSpeed;
+        transform.Rotate(0,hInput,0);
 
-        if (Input.GetKey(KeyCode.Y))
+        yVar += gravity*Time.deltaTime;
+
+        if (controller.isGrounded && movement.y < 0) ;
         {
-            movement.x *= -moveSpeed;
+            yVar = -1f;
+            jumpCount = 0;
+        }
+
+        if (Input.GetButtonDown("Jump") && jumpCount < jumpCountMax) ;
+        {
+            //yVar += Mathf.Sqrt(jumpforce *  -3f * gravity);
+            yVar = jumpforce;
+            jumpCount++;
+            print(jumpCount);
         }
         
-        if (Input.GetButtonDown("Jump"))
-        {
-            movement.y = jumpForce;
-        }
-
-        if (controller.isGrounded)
-        {
-            movement.y = 0;
-        }
-        else
-        {
-            movement.y -= gravity;
-        }
-
         movement = transform.TransformDirection(movement);
-        controller.Move(movement*Time.deltaTime);
+        controller.Move(movement * Time.deltaTime);
     }
 }
