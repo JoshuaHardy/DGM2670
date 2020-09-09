@@ -1,0 +1,11 @@
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\bin\Debug\netcoreapp2.2\PrintTest02.deps.json
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\bin\Debug\netcoreapp2.2\PrintTest02.runtimeconfig.json
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\bin\Debug\netcoreapp2.2\PrintTest02.runtimeconfig.dev.json
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\bin\Debug\netcoreapp2.2\PrintTest02.dll
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\bin\Debug\netcoreapp2.2\PrintTest02.pdb
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\obj\Debug\netcoreapp2.2\PrintTest02.csprojAssemblyReference.cache
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\obj\Debug\netcoreapp2.2\PrintTest02.csproj.CoreCompileInputs.cache
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\obj\Debug\netcoreapp2.2\PrintTest02.AssemblyInfoInputs.cache
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\obj\Debug\netcoreapp2.2\PrintTest02.AssemblyInfo.cs
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\obj\Debug\netcoreapp2.2\PrintTest02.dll
+D:\DGM\DGM2670\Notes\BookScripts\PrintTest02\PrintTest02\obj\Debug\netcoreapp2.2\PrintTest02.pdb

@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "kDWSEyDTs3tKPG88+4vptFe2LnS9RvrwOEcqg2auhFmANc39pq5hNUE7kiPANcrt8MJ2V6wij8Hb4+fiG+bigg==",
+  "success": true,
+  "projectFilePath": "D:\\DGM\\DGM2670\\Notes\\BookScripts\\PrintTest02\\PrintTest02\\PrintTest02.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.app\\2.2.0\\microsoft.netcore.app.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.2.0\\microsoft.netcore.dotnetapphost.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.2.0\\microsoft.netcore.dotnethostpolicy.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.2.0\\microsoft.netcore.dotnethostresolver.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.platforms\\2.2.0\\microsoft.netcore.platforms.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.targets\\2.0.0\\microsoft.netcore.targets.2.0.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\DGM\\DGM2670\\Notes\\BookScripts\\PrintTest02\\PrintTest02\\PrintTest02.csproj": {}
+  },
+  "projects": {
+    "D:\\DGM\\DGM2670\\Notes\\BookScripts\\PrintTest02\\PrintTest02\\PrintTest02.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DGM\\DGM2670\\Notes\\BookScripts\\PrintTest02\\PrintTest02\\PrintTest02.csproj",
+        "projectName": "PrintTest02",
+        "projectPath": "D:\\DGM\\DGM2670\\Notes\\BookScripts\\PrintTest02\\PrintTest02\\PrintTest02.csproj",
+        "packagesPath": "C:\\Users\\joshs\\.nuget\\packages\\",
+        "outputPath": "D:\\DGM\\DGM2670\\Notes\\BookScripts\\PrintTest02\\PrintTest02\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\joshs\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
