@@ -1,3 +1,5 @@
 C# File Log for the O'Riley Book
 
 9/5/2020 O'Reilly book studies, Arithemetic modifier syntax
+9/10/2020 Additional readings in the O'Reilley Book. Studied the operation table.
+
