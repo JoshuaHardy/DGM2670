@@ -60,10 +60,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AddScore.cs" />
      <Compile Include="Assets\Scripts\CharacterMover.cs" />
+     <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
+     <Compile Include="Assets\Scripts\FloatData.cs" />
      <Compile Include="Assets\Scripts\IfStatements.cs" />
      <Compile Include="Assets\Scripts\IntData.cs" />
+     <Compile Include="Assets\Scripts\JumpPowerUp.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
-     <Compile Include="Assets\Scripts\This_One\CharacterMoverAR01.cs" />
+     <Compile Include="Assets\Scripts\SpawnPoint.cs" />
+     <Compile Include="Assets\Scripts\Vector3Data.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/DGM/DGM2670/2670Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
