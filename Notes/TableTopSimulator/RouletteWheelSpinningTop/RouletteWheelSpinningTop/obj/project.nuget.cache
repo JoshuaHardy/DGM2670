@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "4fLJr8p5oM3MO+s18bW8/cCKXjisnoloYGxDW3sN6BTHB2ThA5fYI1HRKsQELE8nWaSkPZ4QLCBNcjRRd1o8yw==",
+  "success": true,
+  "projectFilePath": "D:\\DGM\\DGM2670\\Notes\\TableTopSimulator\\RouletteWheelSpinningTop\\RouletteWheelSpinningTop\\RouletteWheelSpinningTop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.app\\2.2.0\\microsoft.netcore.app.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.2.0\\microsoft.netcore.dotnetapphost.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.2.0\\microsoft.netcore.dotnethostpolicy.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.2.0\\microsoft.netcore.dotnethostresolver.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.platforms\\2.2.0\\microsoft.netcore.platforms.2.2.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\microsoft.netcore.targets\\2.0.0\\microsoft.netcore.targets.2.0.0.nupkg.sha512",
+    "C:\\Users\\joshs\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
