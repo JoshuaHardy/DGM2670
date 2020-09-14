@@ -1,0 +1,55 @@
+rouletteWheelGUID = 'eb7e7e'
+rouletteWheel = nil
+
+function onload ()
+    rouletteWheel = getObjectFromGUID(rouletteWheelGUID)
+end
+
+
+spinning = false
+startTime = 0
+spinTime = 60
+
+function onCollisionEnter (collision_info)
+    if spinning == false then
+        startTime = os.clock()
+        startLuaCoroutine(self, 'SpinCoroutine')
+    end
+end
+
+function SpinCoroutine ()
+    spinning = true
+    timeDiff = os.clock() - startTime
+
+    prevClock = os.clock()
+        spinVar = math.random(1,16)
+
+    if ( spinVar % 2 == 0) then
+        spinVar = -spinVar
+    end
+    spinTime = spinTime + spinVar
+    
+-- broadcastToAll( "spinVar =" .. spinVar,  red)
+     
+    while timeDiff < spinTime do
+
+        timeDelta = os.clock() - prevClock --make spinning frame independent by getting delta
+        prevClock = os.clock()
+
+        spinSpeed = (spinTime - timeDiff) * timeDelta * 60
+
+        currentRot = rouletteWheel.getRotation()
+        currentRot['x'] = 0
+        currentRot['y'] = currentRot['y'] + spinSpeed
+        currentRot['z'] = 0
+        rouletteWheel.setRotation(currentRot)
+
+        coroutine.yield(0) --wait one frame
+
+        timeDiff = os.clock() - startTime
+    end
+
+    spinning = false
+    --[[ Always return 1 at the end of a coroutine. --]]
+    return 1
+end
