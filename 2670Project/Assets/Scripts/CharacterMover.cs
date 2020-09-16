@@ -15,7 +15,7 @@ public class CharacterMover : MonoBehaviour
 
     public FloatData moveSpeed, normalSpeed, fastSpeed;
     
-    public int jumpCountMax = 2;
+    public int playerJumpCountMax = 2;
     private int jumpCount;
 
     public Vector3Data currentSpawnPoint;
@@ -45,13 +45,13 @@ public class CharacterMover : MonoBehaviour
 
         yVar += gravity*Time.deltaTime;
 
-         /*if (controller.isGrounded && movement.y < 0);
+         if (controller.isGrounded && movement.y < 0);
          {
              yVar = -1f;
              jumpCount = 0;
          }
-*/
-         if (Input.GetButtonDown("Jump") && jumpCount < playerJumpCountMax.value) ;
+
+         if (Input.GetButtonDown("Jump") && jumpCount < playerJumpCountMax) ;
          {
              //yVar += Mathf.Sqrt(jumpforce *  -3f * gravity);
              yVar = jumpforce;
@@ -63,11 +63,9 @@ public class CharacterMover : MonoBehaviour
         controller.Move(movement * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnEnable()
     {
-         // Set the location data of the player to the currentSpawnPoint Scene Object.
-         
+        transform.position = currentSpawnPoint.value;
     }
-
-   
+    
 }

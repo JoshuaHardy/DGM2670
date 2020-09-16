@@ -5,4 +5,10 @@ using UnityEngine;
 public class Vector3Data : ScriptableObject
 {
     public Vector3 value;
+
+    public void SetValueFromTransform(Vector3 obj)
+    {
+        value = obj;
+    }
+
 }
