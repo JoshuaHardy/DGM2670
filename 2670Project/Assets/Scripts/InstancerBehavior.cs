@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Instancer : MonoBehaviour
+public class InstancerBehavior : MonoBehaviour
 {
     public GameObject prefab;
-    
+    public Vector3Data rotationDirection;
     /*
  Make a method to call the instance;
  */
@@ -15,8 +15,8 @@ public class Instancer : MonoBehaviour
     {
       
         var location = transform.position;
-        /*var rotationDirection = new Vector3(0f,45f,0 );*/
-        Instantiate(prefab, location, Quaternion.Euler(/*rotationDirection*/ 45, 0, 0 ));
+        var rotationDirection = new Vector3(0f,45f,0 );
+        Instantiate(prefab, location, Quaternion.Euler(rotationDirection));
         
     }
 }

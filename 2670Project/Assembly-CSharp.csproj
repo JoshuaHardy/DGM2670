@@ -66,12 +66,14 @@
      <Compile Include="Assets\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\FloatData.cs" />
      <Compile Include="Assets\Scripts\IfStatements.cs" />
-     <Compile Include="Assets\Scripts\Instancer.cs" />
+     <Compile Include="Assets\Scripts\InstancerBehavior.cs" />
      <Compile Include="Assets\Scripts\IntData.cs" />
      <Compile Include="Assets\Scripts\JumpPowerUp.cs" />
-     <Compile Include="Assets\Scripts\LookAt.cs" />
+     <Compile Include="Assets\Scripts\LookAtBehavior.cs" />
+     <Compile Include="Assets\Scripts\MousEventsBehavior.cs" />
      <Compile Include="Assets\Scripts\MoveLocator.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
+     <Compile Include="Assets\Scripts\SelfDestruct.cs" />
      <Compile Include="Assets\Scripts\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Vector3Data.cs" />
      <Compile Include="Assets\Scripts\lerping.cs" />
