@@ -10,13 +10,13 @@ public class EnemyConfig : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eHealth = ScripatableObject.CreateInstamce<EnemyHealth>();
+        //eHealth = ScripatableObject.CreateInstamce<EnemyHealth>();
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        eHealth.value -= 0.1f;
+        //eHealth.value -= 0.1f;
     }
 }
         
