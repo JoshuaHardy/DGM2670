@@ -62,11 +62,15 @@
      <Compile Include="Assets\Scripts\Behaviors\ApplyForce.cs" />
      <Compile Include="Assets\Scripts\Behaviors\CharacterMover.cs" />
      <Compile Include="Assets\Scripts\Behaviors\LookAtBehavior.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\MonoEventsBehavior.cs" />
      <Compile Include="Assets\Scripts\Behaviors\MouseEventsBehavior.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\Behaviors\SelfDestruct.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\TriggerEventBehavior.cs" />
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
      <Compile Include="Assets\Scripts\Debugger.cs" />
      <Compile Include="Assets\Scripts\IfStatements.cs" />
+     <Compile Include="Assets\Scripts\PowerUp.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjectes\FloatData.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjectes\IntData.cs" />

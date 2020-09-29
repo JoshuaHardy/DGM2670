@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e665946345d57c5409cc07ac73b46c21, type: 3}
-  m_Name: SpawnPoint01
+  m_Script: {fileID: 11500000, guid: 4d28414e7c971c649852f56812682a43, type: 3}
+  m_Name: PlayerHealth
   m_EditorClassIdentifier: 
-  value: {x: 0, y: 0.7, z: 0}
+  value: 0
