@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ApplyForce : MonoBehaviour
 {
+    
     private Rigidbody rBody;
     public float force = 30f;
 

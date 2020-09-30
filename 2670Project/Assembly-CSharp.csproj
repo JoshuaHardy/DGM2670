@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AddScore.cs" />
      <Compile Include="Assets\Scripts\Behaviors\ApplyForce.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\CharacterKnockbackBehavior.cs" />
      <Compile Include="Assets\Scripts\Behaviors\CharacterMover.cs" />
      <Compile Include="Assets\Scripts\Behaviors\LookAtBehavior.cs" />
      <Compile Include="Assets\Scripts\Behaviors\MonoEventsBehavior.cs" />
