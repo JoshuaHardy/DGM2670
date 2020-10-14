@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\DGM\\DGM2670\\GroupWork\\GroupWorkTrigger\\GroupWorkTrigger\\GroupWorkTrigger.csproj": {}
+  },
+  "projects": {
+    "D:\\DGM\\DGM2670\\GroupWork\\GroupWorkTrigger\\GroupWorkTrigger\\GroupWorkTrigger.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DGM\\DGM2670\\GroupWork\\GroupWorkTrigger\\GroupWorkTrigger\\GroupWorkTrigger.csproj",
+        "projectName": "GroupWorkTrigger",
+        "projectPath": "D:\\DGM\\DGM2670\\GroupWork\\GroupWorkTrigger\\GroupWorkTrigger\\GroupWorkTrigger.csproj",
+        "packagesPath": "C:\\Users\\joshs\\.nuget\\packages\\",
+        "outputPath": "D:\\DGM\\DGM2670\\GroupWork\\GroupWorkTrigger\\GroupWorkTrigger\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\joshs\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
