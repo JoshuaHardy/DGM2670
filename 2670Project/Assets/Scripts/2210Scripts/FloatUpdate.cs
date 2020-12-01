@@ -14,6 +14,7 @@ public class FloatUpdate : MonoBehaviour
     public float coefficient = 0.1f;
     private bool isActive;
     private int numberOfPlayers = 0;
+    
     void Update ()
     {
         if (numberOfPlayers >= 1)
