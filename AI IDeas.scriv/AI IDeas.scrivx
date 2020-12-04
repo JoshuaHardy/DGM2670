@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrivenerProject Template="No" Version="1.5" Creator="SCRWIN-1.9.16.0" Device="DESKTOP-PTNA5DD" Modified="2020-12-03 23:59:53 -0700" ModID="D353F345-0F36-4173-97FA-3D3244638CA4">
+    <Binder>
+        <BinderItem ID="0" UUID="C2B19AE0-1EAA-48CF-84C7-6147CBF25BDF" Created="2020-12-03 23:59:39 -0700" Modified="2020-12-03 23:59:39 -0700" Type="DraftFolder">
+            <Title>Draft</Title>
+            <MetaData>
+                <IncludeInCompile>Yes</IncludeInCompile>
+            </MetaData>
+            <Children>
+                <BinderItem ID="3" UUID="11842129-EE40-4B6B-A480-E756542C505E" Created="2020-12-03 23:59:39 -0700" Modified="2020-12-03 23:59:44 -0700" Type="Text">
+                    <Title></Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <Target Type="Words">0</Target>
+                    </TextSettings>
+                </BinderItem>
+            </Children>
+        </BinderItem>
+        <BinderItem ID="1" UUID="443FA88C-C86C-4AAA-9F7E-64F12B9AD330" Created="2020-12-03 23:59:39 -0700" Modified="2020-12-03 23:59:39 -0700" Type="ResearchFolder">
+            <Title>Research</Title>
+            <MetaData>
+                <IncludeInCompile>Yes</IncludeInCompile>
+            </MetaData>
+            <Children>
+                <BinderItem ID="4" UUID="DE2B4F35-148B-480E-AE87-EF15EE1B1C7B" Created="2020-12-03 23:59:48 -0700" Modified="2020-12-03 23:59:51 -0700" Type="Folder">
+                    <Title>AI Enemy Ideas</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <Target Type="Words">0</Target>
+                    </TextSettings>
+                </BinderItem>
+            </Children>
+        </BinderItem>
+        <BinderItem ID="2" UUID="5E7708D4-9AC3-4AD1-8226-59DA9C6F970A" Created="2020-12-03 23:59:39 -0700" Modified="2020-12-03 23:59:39 -0700" Type="TrashFolder">
+            <Title>Trash</Title>
+            <MetaData>
+                <IncludeInCompile>Yes</IncludeInCompile>
+            </MetaData>
+        </BinderItem>
+    </Binder>
+    <LabelSettings>
+        <Title>Label</Title>
+        <DefaultLabelID>-1</DefaultLabelID>
+        <Labels>
+            <Label ID="-1">No Label</Label>
+            <Label ID="0" Color="0.752941 0.752941 1.000000">Concept</Label>
+            <Label ID="1" Color="1.000000 0.752941 0.752941">Chapter</Label>
+        </Labels>
+    </LabelSettings>
+    <StatusSettings>
+        <Title>Status</Title>
+        <DefaultStatusID>-1</DefaultStatusID>
+        <StatusItems>
+            <Status ID="-1">No Status</Status>
+            <Status ID="0">N/A</Status>
+            <Status ID="1">To Do</Status>
+            <Status ID="2">First Draft</Status>
+            <Status ID="3">Revised Draft</Status>
+            <Status ID="4">Final Draft</Status>
+            <Status ID="5">Done</Status>
+        </StatusItems>
+    </StatusSettings>
+    <ProjectTargets>
+        <DraftTarget Type="Words" CountIncludedOnly="No" CurrentCompileGroupOnly="No">0</DraftTarget>
+        <SessionTarget Type="Words" CountDraftOnly="No" AllowNegatives="No" ResetType="Midnight" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="No" WritingDays="">0</SessionTarget>
+        <PreviousSession Words="0" Characters="0" Date="2020-12-03 23:59:40 -0700"/>
+    </ProjectTargets>
+    <Collections>
+        <Collection Type="Binder" ID="4F29BE0C-5F4A-451F-85BB-70C9477C3E7F" Color="0.901961 0.917647 0.933333">
+            <Title>Binder</Title>
+        </Collection>
+        <Collection Type="RecentSearch" ID="8989A727-9E51-4B66-82FC-A09239035732" Color="0.901961 0.901961 0.980392">
+            <Title>Search Results</Title>
+            <SearchSettings Operator="Exact" Type="All" Scope="All" CompileSetting="All" CaseSensitive="No"></SearchSettings>
+        </Collection>
+    </Collections>
+    <PrintSettings PaperType="Letter" LeftMargin="8.39057" RightMargin="8.39057" TopMargin="8.39057" BottomMargin="8.39057" Orientation="Portrait" Collates="No" ReverseOrder="No"/>
+</ScrivenerProject>
