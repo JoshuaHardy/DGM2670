@@ -11,8 +11,8 @@ public class ComeTogether : MonoBehaviour
     public Rigidbody rbBlue, rbRed;
     public float maxDist = 30f, knockBack = 30f;
 
-    [FormerlySerializedAs("LerpStart")] public GameObject blueCharacter;
-    [FormerlySerializedAs("LerpEnd")] public GameObject redCharacter;
+    public GameObject blueCharacter;
+    public GameObject redCharacter;
     private Vector3 comeMidBlue, comeMidRed;
 
     private void Start()

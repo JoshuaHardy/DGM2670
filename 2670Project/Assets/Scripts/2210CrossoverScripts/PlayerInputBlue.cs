@@ -15,7 +15,7 @@ public class PlayerInputBlue : MonoBehaviour
   public BoolData isSprinting;
   public GameObject fireball_S; 
   public Transform gun;
-  public int projectileThrust = 10;
+  public int projectileThrust = 15;
 
   //public BoolData blueSprinting, blueCharging;
   private void Awake()
@@ -35,8 +35,14 @@ public class PlayerInputBlue : MonoBehaviour
 
   public void Update()
   {
-    Vector3 mB = new Vector3(blueMovement.x, +0, blueMovement.y) * speed.value * sprintPlaceholder * Time.deltaTime;
-    bluePlayer.transform.Translate(mB, Space.World);
+    Vector3 mBlue = new Vector3(blueMovement.x, +0, blueMovement.y) * speed.value * sprintPlaceholder * Time.deltaTime;
+    bluePlayer.transform.Translate(mBlue, Space.World);
+    
+    var input = new Vector3(blueMovement.x, 0, blueMovement.y);
+    if(input != Vector3.zero)
+    {
+      transform.forward = input;
+    }
   }
 
   private void BlueSprintOn()
@@ -44,7 +50,7 @@ public class PlayerInputBlue : MonoBehaviour
     sprintPlaceholder *= sprintCoefficient.value;
    // StopCoroutine(IncreaseEnergy());
    isSprinting.value = true;
-    print("Sprint Blue On");
+    print("Sprintf Blue On");
   }
 
   void BlueSprintOff()
@@ -94,7 +100,7 @@ public class PlayerInputBlue : MonoBehaviour
   
   public void shootFireballBlueSmall()
   {
-    var newBullet = Instantiate(fireball_S, gun.transform.position, gun.transform.rotation);
+    var newBullet = Instantiate(fireball_S, gun.position, gun.transform.rotation);
     newBullet.GetComponent<Rigidbody>().velocity = transform.TransformDirection(gun.transform.forward * projectileThrust);
   }
   
