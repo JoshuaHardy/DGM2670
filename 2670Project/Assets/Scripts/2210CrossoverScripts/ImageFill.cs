@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ImageFill : MonoBehaviour
 {
-    public Image FillImage;
+    public Image fillImage;
     //[Range(0.000f, 1.0f)] 
-    public FloatData FillFloat;
+    public FloatData fillFloat;
     
     void Start()
     {
@@ -16,6 +16,6 @@ public class ImageFill : MonoBehaviour
 
     void Update()
     {
-        FillImage.fillAmount = FillFloat.value;
+        fillImage.fillAmount = fillFloat.value;
     }
 }

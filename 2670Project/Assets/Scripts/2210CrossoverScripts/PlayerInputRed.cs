@@ -10,7 +10,7 @@ public class PlayerInputRed : MonoBehaviour
   private Vector2 redMovement;
   public FloatData speed, sprintCoefficient, redEnergy, energyRegen, energyUseRun, energyUseShoot;
   private float sprintPlaceholder = 1.0f;
-  public bool canFire;
+  public bool canFire = true, isCharging = false;
   public BoolData isSprinting;
   public GameObject fireball_S; 
   public Transform gun;
@@ -31,11 +31,11 @@ public class PlayerInputRed : MonoBehaviour
 
   public void Update()
   {
-    Vector3 mR = new Vector3(redMovement.x, +0, redMovement.y) * speed.value * sprintPlaceholder * Time.deltaTime;
-    redPlayer.transform.Translate(mR, Space.World);
+    Vector3 mRed = new Vector3(redMovement.x, +0, redMovement.y) * speed.value * sprintPlaceholder * Time.deltaTime;
+    redPlayer.transform.Translate(mRed, Space.World);
     
     var input = new Vector3(redMovement.x, 0, redMovement.y);
-    if(input != Vector3.zero)
+    if ((input != Vector3.zero) && (!isCharging))
     {
       transform.forward = input;
     }
@@ -86,8 +86,8 @@ public class PlayerInputRed : MonoBehaviour
   }
   public void shootFireballBlueSmall()
   {
-    var newBullet = Instantiate(fireball_S, gun.position, gun.transform.rotation);
-    newBullet.GetComponent<Rigidbody>().velocity = transform.TransformDirection(gun.transform.forward * projectileThrust);
+    var newBullet = Instantiate(fireball_S, gun.position, gun.rotation);
+    newBullet.GetComponent<Rigidbody>().velocity = (gun.forward * projectileThrust);
   }
 }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f24f1e494903f4ab411ca303900e6d, type: 3}
   m_Name: BluePlayerEnergy
   m_EditorClassIdentifier: 
-  value: 1.0060954
+  value: 0.20000002
   setValueEvent:
     m_PersistentCalls:
       m_Calls: []

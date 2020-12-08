@@ -18,16 +18,25 @@ public class FloatBoolUpdate : MonoBehaviour
     }
     void Update ()
     {
-        if ((triggerBool) && (adjustedFloatData.value < maxValue.value))
+        if ((!triggerBool) && (adjustedFloatData.value < maxValue.value))
         {
             adjustedFloatData.value += positiveCoefficient.value * Time.deltaTime;
         }
         else
         {
-            if (adjustedFloatData.value > minValue.value)
+            if ((triggerBool) && (adjustedFloatData.value > minValue.value))
             {
                 adjustedFloatData.value -= negativeCoefficient.value * Time.deltaTime;
             }   
+        }
+
+        if (adjustedFloatData.value > maxValue.value)
+        {
+            adjustedFloatData.value = maxValue.value;
+        }
+        if (adjustedFloatData.value < minValue.value)
+        {
+            adjustedFloatData.value = minValue.value;
         }
     }
 }
