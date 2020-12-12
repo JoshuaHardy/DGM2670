@@ -12,16 +12,16 @@ public class AIEnemy01 : MonoBehaviour
     int MaxDist = 6;
     int MinDist = 3;
 
-    public float enemyHealth = 1.0f, engageRange = 10;
+    public float enemyHealth = 1.0f, engageRange = 10.0f;
     
     private float maxHealth = 1.0f, minHealth = 0.0f;
-    private bool isHit;
+    //private bool isHit;
     public Image fillImage;
     private float blueDist, redDist, targetDist;
     
     void Awake()
     {
-        enemyHealth = 1.0f;
+        enemyHealth = maxHealth;
     }
 
     private void Start()
@@ -47,8 +47,8 @@ public class AIEnemy01 : MonoBehaviour
             target = redPlayer;
         }
         
-        transform.LookAt(target);
-        targetDist = (Vector3.Distance(transform.position, target.position));
+        
+        
         
         //Enemy Engage Behavior
         if ((targetDist >= MinDist) && (targetDist <= engageRange))
@@ -78,7 +78,7 @@ public class AIEnemy01 : MonoBehaviour
             //if (other.gameObject.tag == "FriendlyBullet")
             {
                 enemyHealth += -.25f;
-                isHit = true;
+                //isHit = true;
                 print("Bullet Hit Registered");
             }
         }

@@ -10,92 +10,86 @@ public class PlayerInputBlue : MonoBehaviour
   public GameObject bluePlayer;
   private PlayerControls controls;
   private Vector2 blueMovement;
+  public IntData shotsFiredData, chargedShotsFiredData;
 
-  public FloatData 
-    speed,
-    sprintCoefficient,
+  public FloatData
+    walkSpeed,
+    sprintSpeed,
     blueEnergy,
-    energyRegen,
-    energyUseRun,
     energyUseShoot,
-    energyUseBig,
-    chargeMeter;
+    chargeMeter,
+    projectileThrust,
+    largeProjectileThrust,
+    recoil,
+    currentMoveSpeed,
+    fireRate,
+    chargeTime;
+    
 
-  private float sprintPlaceholder = 1.0f, particleSimSpeed;
-  public bool canFire = true, isCharging = false, isHoldingFire = false, canSprint = true, isSprinting = false;
+  private void OnAudioFilterRead(float[] data, int channels)
+  {
+    throw new NotImplementedException();
+  }
+
+  public Rigidbody rBodyBlue;
+  private float chargeFloat, regenDataHolder;
+  public bool canFire = true, isCharging = false, canSprint = true;
   public GameObject fireball_S, fireball_M;
   public Transform gun;
-  public int projectileThrust = 15;
-  public ParticleSystem chargeParticles;
-  public float walkSpeed, sprintSpeed, holdFireTime;
+  public ParticleSystem chargeParticles, chargeMoreParticles;
+  public float moveSpeed;
   
   //Energy Management Variables
-  public FloatData minValue, maxValue, positiveCoefficient, negativeCoefficient;
+  public FloatData minValue, maxValue, energyRegen, sprintCost;
 
-  //public BoolData blueSprinting, blueCharging;
+  public BoolData fullyCharged, isSprinting, isIdle, isExhausted;
   private void Awake()
   {
+    rBodyBlue = GetComponent<Rigidbody>();
     controls = new PlayerControls();
-    chargeParticles = GetComponent<ParticleSystem>();
     chargeMeter.value = 0.0f;
     // Input System API 
-    https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Interactions.html
+    // https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Interactions.html
     
     controls.Gameplay.SprintBlue.started += context => BlueSprintOn();
     controls.Gameplay.SprintBlue.canceled += context => BlueSprintOff();
-    
-    /*controls.Gameplay.TestWestPressed.started += context => BlueFire();
-    controls.Gameplay.TestWestHold.started += context => StartCharging();
-    controls.Gameplay.TestWestHold.performed += context => print(" ChargeBlue Hold performed");//ShootFireballBlueBig();
-    controls.Gameplay.TestWestHold.canceled += context => StopCharging();*/
-    
     controls.Gameplay.FireBlue.started += context => BlueFire();
-    controls.Gameplay.ChargeBlue.started += context => StartCharging();
-    controls.Gameplay.ChargeBlue.performed += context => print(" ChargeBlue Hold performed");//ShootFireballBlueBig();
-    controls.Gameplay.ChargeBlue.canceled += context => StopCharging();
-   
-    /*controls.Gameplay.TestWestPressed.started += context => print("Start West Registered");
-    controls.Gameplay.TestWestPressed.canceled += context => print("Start West canceled");
-    controls.Gameplay.TestWestPressed.performed += context => print("Start West performed");
-    controls.Gameplay.TestWestHold.started += context => print("Start West Hold Started");
-    controls.Gameplay.TestWestHold.canceled += context => print("Start West Hold canceled");
-    controls.Gameplay.TestWestHold.performed += context => print("Start West Hold performed");*/
-    
+    controls.Gameplay.LeftStickPress.started += context => BlueFireBig();
     controls.Gameplay.MoveBlue.performed += context => blueMovement = context.ReadValue<Vector2>();
     controls.Gameplay.MoveBlue.canceled += context => blueMovement = Vector2.zero;
-
   }
-
   private void Start()
   {
+    chargeFloat = (1 / (chargeTime.value ));
     blueEnergy.value = 1.0f;
-    walkSpeed = speed.value;
-    sprintSpeed = (speed.value * sprintCoefficient.value);
+    moveSpeed = walkSpeed.value;
+    fullyCharged.value = false;
+    isCharging = false;
+    canSprint = true;
+    isSprinting.value = false;
+    regenDataHolder = energyRegen.value;
   }
-
   public void Update()
   {
-    Vector3 mBlue = new Vector3(blueMovement.x, +0, blueMovement.y) * speed.value * Time.deltaTime;
+    Vector3 mBlue = new Vector3(blueMovement.x, +0, blueMovement.y) * (moveSpeed * Time.deltaTime);
     bluePlayer.transform.Translate(mBlue, Space.World);
-
+    currentMoveSpeed.value = moveSpeed;
+    
     var input = new Vector3(blueMovement.x, 0, blueMovement.y);
     if ((input != Vector3.zero) && (!isCharging))
     {
       transform.forward = input;
     }
-    var pSmain = chargeParticles.main;
-    pSmain.simulationSpeed = particleSimSpeed;
-    
-      //Energy Management
-    if ((!isSprinting) && (blueEnergy.value < maxValue.value))
+    //Energy Management
+    if ((!isSprinting.value) && (blueEnergy.value < maxValue.value))
     {
-      blueEnergy.value += positiveCoefficient.value * Time.deltaTime;
+      blueEnergy.value += energyRegen.value * Time.deltaTime;
     }
     else
     {
-      if ((isSprinting) && (blueEnergy.value >= minValue.value))
+      if ((isSprinting.value) && (blueEnergy.value >= minValue.value) && (blueMovement != Vector2.zero))
       {
-        blueEnergy.value -= negativeCoefficient.value * Time.deltaTime;
+        blueEnergy.value -= sprintCost.value * Time.deltaTime;
       }
     }
 
@@ -103,68 +97,29 @@ public class PlayerInputBlue : MonoBehaviour
     {
       blueEnergy.value = maxValue.value;
     }
-    if (blueEnergy.value <= minValue.value)
+    if ((blueEnergy.value <= minValue.value) && (canSprint))
     {
       blueEnergy.value = minValue.value;
+      isExhausted.value = true;
+      isSprinting.value = false;
+      moveSpeed = walkSpeed.value;
       canSprint = false;
-      isSprinting = false;
-      speed.value = walkSpeed;
     }
-    if (blueEnergy.value >= .5)
+    if ((blueEnergy.value >= 1.0) && (!isExhausted.value))
     {
-      canSprint = true;
+      isExhausted.value = false;
     }
-  }
-
-  private void BlueSprintOn()
-  {
-    if (canSprint)
+    if ((!isSprinting.value) && (blueMovement == Vector2.zero))
     {
-      speed.value = sprintSpeed;
-      isSprinting = true;
-      Debug.Log("Sprint Blue On");
+      isIdle.value = true;
     }
-  }
 
-  void BlueSprintOff()
-  {
-    Debug.Log("Sprint Blue Off");
-    speed.value = walkSpeed;
-    isSprinting = false;
-  }
-
-  private void StartCharging()
-  {
-    Debug.Log(("ChargeBlue.started"));
-    isHoldingFire = true;
-    StartCoroutine(ChargeBigShot());
-  }
-  private void BlueFire()
-  {
-    Debug.Log(("FireBlue Started"));
+    if (blueMovement != Vector2.zero)
+    {
+      isIdle.value = false;
+    }
     
-    if (!isHoldingFire)
-    {
-      FireShot();
-    }
   }
-
-  
-
-  private void StopCharging()
-  {
-    isHoldingFire = false;
-    isCharging = false;
-    Debug.Log("ChargeBlue.canceled");
-    //StopCoroutine(ChargeBigShot());
-    chargeMeter.value = 0.0f;
-    particleSimSpeed = 0.0f;
-    StartCoroutine(Reload());
-    /*ShootFireballBlueSmall();
-    blueEnergy.value -= energyUseShoot.value;*/
-  }
-  
-  
 
   private void OnEnable()
   {
@@ -175,79 +130,148 @@ public class PlayerInputBlue : MonoBehaviour
   {
     controls.Gameplay.Disable();
   }
-
-  private void FireShot()
+  private void BlueSprintOn()
   {
-    while ((canFire) && (blueEnergy.value >= energyUseShoot.value))
+    if ((canSprint) && (!isExhausted.value))
     {
-      canFire = false;
-      ShootFireballBlueSmall();
-      Debug.Log("Fire Small Blue");
-      blueEnergy.value -= energyUseShoot.value;
+      moveSpeed = sprintSpeed.value;
+      isSprinting.value = true;
+      Debug.Log("Sprint Blue On");
     }
   }
 
-  IEnumerator ChargeBigShot()
+  private void BlueSprintOff()
+  {
+    Debug.Log("Sprint Blue Off");
+    moveSpeed = walkSpeed.value;
+    isSprinting.value = false;
+  }
+  private void BlueFire()
+  {
+    Debug.Log(("FireBlue Started"));
+    StartCoroutine(FireShot());
+  }
+  
+  private void BlueFireBig()
+  {
+    Debug.Log(("BlueFireBig Started"));
+    if ((blueEnergy.value >= 1.0f) && (fullyCharged.value == false) && (canFire))
     {
-      Debug.Log("ChargeBigShot: Enter");
-      while ((canFire) && (!isCharging) && (chargeMeter.value <= 0.1f))
-      {
-        Debug.Log("ChargeBigShot:Init");
-        canFire = false;
-        isCharging = true;
-        yield return particleSimSpeed = 1.0f;
-      }
-
-      while ((chargeMeter.value <= 1.1f) && (isCharging))
-      {
-        Debug.Log("ChargeBigShot:Charging");
-        chargeMeter.value += .165f;
-        yield return new WaitForSeconds(0.5f);
-        particleSimSpeed += 0.5f;
-      }
-
-      if ((chargeMeter.value >= .95f) && (blueEnergy.value >= .98f) && (isCharging))
-      {
-        Debug.Log("ChargeBigShot:FireBig");
-        ShootFireballBlueBig();
-        blueEnergy.value -= energyUseBig.value;
-        isCharging = false;
-        particleSimSpeed = 0.0f;
-        chargeMeter.value = 0.0f;
-      }
-
-      if ((chargeMeter.value < .95f) || ((blueEnergy.value < .98f) && (blueEnergy.value >= energyUseShoot.value )))
-      {
-        Debug.Log("ChargeBigShot:FireSmall");
-        canFire = true;
-        FireShot();
-      }
-      Debug.Log("Charging Coroutine Exit");
-      yield break;
+      StartCoroutine(ChargeShotBig());
+      StartCoroutine(ParticleParty());
     }
-   
 
-    void ShootFireballBlueSmall()
+    if ((blueEnergy.value >= energyUseShoot.value) && (fullyCharged.value == false) && (!canFire))
+    {
+      Debug.Log(("ChargeShotCanceled"));
+      StopCoroutine(ChargeShotBig());
+      StopCoroutine(ParticleParty());
+      ShootFireballBlueSmall();
+      chargeParticles.Stop();
+      chargeMoreParticles.Stop();
+      energyRegen.value = regenDataHolder;
+      canFire = true;
+      blueEnergy.value = 0.0f;
+      chargeMeter.value = 0.0f;
+      fullyCharged.value = false;
+      canSprint = true;
+      isCharging = false;
+    }
+
+    if ((fullyCharged.value == true))
+    {
+      ReleaseBigShot();
+      chargeParticles.Stop();
+      chargeMoreParticles.Stop();
+      isCharging = false;
+    }
+  }
+  private IEnumerator FireShot()
+    {
+      while ((canFire) && (blueEnergy.value >= energyUseShoot.value) && (!isCharging))
+      {
+        canFire = false;
+        ShootFireballBlueSmall();
+        Debug.Log("Fire Small Blue");
+        blueEnergy.value -= energyUseShoot.value;
+        yield return new WaitForSeconds(fireRate.value);
+        canFire = true;
+        yield break;
+      }
+    }
+
+  private IEnumerator ChargeShotBig()
+  {
+    Debug.Log("ChargeShotBig: Enter");
+    while (canFire)
+    {
+      blueEnergy.value = 0.01f;
+      chargeMeter.value = 0.01f;
+      fullyCharged.value = false;
+      energyRegen.value = 0.0f;
+      canSprint = false;
+      moveSpeed = walkSpeed.value;
+      Debug.Log("ChargeBigShot:Init");
+      canFire = false;
+      isCharging = true;
+      blueEnergy.value += chargeFloat;
+      chargeMeter.value += chargeFloat;
+    }
+    while ((chargeMeter.value < maxValue.value) && (!canFire))
+    {
+      Debug.Log("ChargeShotBig:Charging... "+chargeMeter.value.ToString()+"% complete");
+      yield return new WaitForSeconds(1.0f);
+      blueEnergy.value += chargeFloat;
+      chargeMeter.value += chargeFloat;
+      
+    }
+
+    if ((chargeMeter.value >= maxValue.value))
+    {
+      fullyCharged.value = true;
+      Debug.Log("ChargeShotBig:fullyCharged");
+    }
+    Debug.Log("ChargeShotBig:Exit");
+    yield break;
+  }
+
+  private IEnumerator ParticleParty()
+  {
+    chargeParticles.Play();
+    yield return new WaitForSeconds(chargeTime.value - 1);
+    chargeMoreParticles.Play();
+    yield break;
+  }
+
+
+  private void ReleaseBigShot()
+  {
+    if ((fullyCharged.value == true) && (blueEnergy.value >= 1.0f) && (chargeMeter.value >= 1.0f))
+    {
+      Debug.Log("FireChargedShot");
+      ShootFireballBlueLarge();
+      energyRegen.value = regenDataHolder;
+      canFire = true;
+      blueEnergy.value = 0.0f;
+      chargeMeter.value = 0.0f;
+      fullyCharged.value = false;
+      canSprint = true;
+    }
+    Debug.Log("FireChargedShot Exit");
+  }
+   void ShootFireballBlueSmall()
     {
       var newBullet = Instantiate(fireball_S, gun.position, gun.rotation);
-      newBullet.GetComponent<Rigidbody>().velocity = (gun.forward * projectileThrust);
-      StartCoroutine(Reload());
+      newBullet.GetComponent<Rigidbody>().velocity = (gun.forward * projectileThrust.value);
+      shotsFiredData.value++;
     }
-
-    void ShootFireballBlueBig()
+  private void ShootFireballBlueLarge()
     {
       Debug.Log(("ChargeBlue.performed"));
       var newBullet = Instantiate(fireball_M, gun.position, gun.rotation);
-      newBullet.GetComponent<Rigidbody>().velocity = (gun.forward * projectileThrust * .75f);
-      GetComponent<Rigidbody>().velocity = (transform.forward * projectileThrust * .01f); 
-      // rBody; somethingsomething rbody.addforce -value forward for knockback?
-      StartCoroutine(Reload());
-    }
-
-    IEnumerator Reload()
-    {
-      StopCoroutine(ChargeBigShot());
-      yield return new WaitForSeconds(0.5f);
-      canFire = true;
+      newBullet.GetComponent<Rigidbody>().velocity = (gun.forward * largeProjectileThrust.value);
+      GetComponent<Rigidbody>().velocity = (-transform.forward * recoil.value);
+      chargedShotsFiredData.value++;
     }
 }
+

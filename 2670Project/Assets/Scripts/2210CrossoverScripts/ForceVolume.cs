@@ -26,8 +26,16 @@ public class ForceVolume : MonoBehaviour
     {
         if ((other.gameObject.tag == "Player") && (other.gameObject.GetComponent<Rigidbody>() != null))
         {
-            pushVector = (pushToThis.transform.position - other.gameObject.transform.position).normalized;
-            other.attachedRigidbody.AddForce(pushVector, ForceMode.VelocityChange);
+            if (pushToThis == null)
+            {
+                pushVector = Vector3.up;
+            }
+            else
+            {
+                pushVector = (pushToThis.transform.position - other.gameObject.transform.position).normalized;
+                other.attachedRigidbody.AddForce(pushVector, ForceMode.VelocityChange);  
+            }
+            
         }
     }
     
